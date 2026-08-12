@@ -1,0 +1,17 @@
+cidade,temperatura_c,descricao,pressao_hpa,vento_ms,data_hora,origem
+Jaboatão,21.94,nublado,1019.0,3.24,2026-08-11 19:48:31,clima_jaboatao_20260811T224831Z.json
+Jaboatão,21.64,nublado,1019.0,2.94,2026-08-11 20:37:54,clima_jaboatao_20260811T233753Z.json
+Jaboatão,21.64,nublado,1019.0,2.94,2026-08-11 21:01:58,clima_jaboatao_20260812T000158Z.json
+Jaboatão,21.64,nublado,1019.0,2.94,2026-08-11 21:01:58,clima_jaboatao_20260812T000807Z.json
+Olinda,24.71,nublado,1019.0,6.91,2026-08-11 19:44:40,clima_olinda_20260811T224829Z.json
+Olinda,24.6,nuvens dispersas,1019.0,6.6,2026-08-11 20:37:51,clima_olinda_20260811T233751Z.json
+Olinda,24.6,nuvens dispersas,1019.0,6.6,2026-08-11 20:57:09,clima_olinda_20260812T000156Z.json
+Olinda,24.6,nuvens dispersas,1019.0,6.6,2026-08-11 20:57:09,clima_olinda_20260812T000805Z.json
+Paulista,24.07,nublado,1019.0,5.91,2026-08-11 19:48:29,clima_paulista_20260811T224829Z.json
+Paulista,23.97,nuvens dispersas,1019.0,5.59,2026-08-11 20:37:52,clima_paulista_20260811T233752Z.json
+Paulista,23.97,nuvens dispersas,1019.0,5.59,2026-08-11 21:01:36,clima_paulista_20260812T000157Z.json
+Paulista,23.97,nuvens dispersas,1019.0,5.59,2026-08-11 21:01:36,clima_paulista_20260812T000806Z.json
+Recife,24.27,nublado,1019.0,6.2,2026-08-11 19:48:30,clima_recife_20260811T224830Z.json
+Recife,24.1,nublado,1019.0,5.91,2026-08-11 20:37:53,clima_recife_20260811T233753Z.json
+Recife,24.1,nublado,1019.0,5.91,2026-08-11 21:00:04,clima_recife_20260812T000157Z.json
+Recife,24.1,nublado,1019.0,5.91,2026-08-11 21:00:04,clima_recife_20260812T000807Z.json

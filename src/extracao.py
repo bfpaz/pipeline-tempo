@@ -3,8 +3,6 @@ import sys
 import unicodedata
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Iterator
-
 import requests
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
@@ -19,9 +17,9 @@ RAW_DIR = Path("data/raw")
 
 
 def salvar_raw(dados: dict) -> Path:
-    """Salva os dados de uma cidade em um arquivo JSON."""
+    """Salva a resposta bruta da API em um arquivo JSON."""
     RAW_DIR.mkdir(parents=True, exist_ok=True)
-    cidade = unicodedata.normalize("NFKD", dados["cidade"])
+    cidade = unicodedata.normalize("NFKD", dados["name"])
     cidade = cidade.encode("ascii", "ignore").decode().lower().replace(" ", "_")
     carimbo = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     caminho = RAW_DIR / f"clima_{cidade}_{carimbo}.json"
@@ -32,7 +30,8 @@ def salvar_raw(dados: dict) -> Path:
     return caminho
 
 
-def coletar_clima() -> Iterator[dict]:
+def coletar_clima() -> None:
+    """Coleta os dados climáticos e salva cada resposta na camada raw."""
     for cidade in CIDADES:
         params = {
             "q": cidade,
@@ -44,17 +43,17 @@ def coletar_clima() -> Iterator[dict]:
         resposta.raise_for_status()
         clima = resposta.json()
 
-        yield {
-            "cidade": clima["name"],
-            "temperatura_c": clima["main"]["temp"],
-            "descricao": clima["weather"][0]["description"],
-            "pressao_hpa": clima["main"]["pressure"],
-            "vento_ms": clima["wind"]["speed"],
-            "dt_api": clima["dt"],
+        dados = {
+            "name": clima["name"],
+            "temp": clima["main"]["temp"],
+            "description": clima["weather"][0]["description"],
+            "pressure": clima["main"]["pressure"],
+            "speed": clima["wind"]["speed"],
+            "dt": clima["dt"],
         }
+        caminho = salvar_raw(dados)
+        print(f"Arquivo salvo: {caminho}")
 
 
 if __name__ == "__main__":
-    for dados_clima in coletar_clima():
-        caminho = salvar_raw(dados_clima)
-        print(f"Arquivo salvo: {caminho}")
+    coletar_clima()
