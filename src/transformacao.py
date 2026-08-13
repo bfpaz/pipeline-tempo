@@ -17,7 +17,6 @@ def carregar_raw(caminho: Path) -> dict:
         return json.load(arq)
 
 def transformar(dados: dict, origem: str) -> pd.DataFrame:
-    """Transforma os dados brutos de uma cidade em uma linha tipada."""
     df = pd.DataFrame([dados])
     colunas_traduzidas = {
         "name": "cidade",

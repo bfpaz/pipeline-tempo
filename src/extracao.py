@@ -17,7 +17,6 @@ RAW_DIR = Path("data/raw")
 
 
 def salvar_raw(dados: dict) -> Path:
-    """Salva a resposta bruta da API em um arquivo JSON."""
     RAW_DIR.mkdir(parents=True, exist_ok=True)
     cidade = unicodedata.normalize("NFKD", dados["name"])
     cidade = cidade.encode("ascii", "ignore").decode().lower().replace(" ", "_")
@@ -31,7 +30,6 @@ def salvar_raw(dados: dict) -> Path:
 
 
 def coletar_clima() -> None:
-    """Coleta os dados climáticos e salva cada resposta na camada raw."""
     for cidade in CIDADES:
         params = {
             "q": cidade,
